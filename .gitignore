@@ -159,3 +159,5 @@ models/production/
 # OS
 .DS_Store
 Thumbs.db
+
+/scripts/*
