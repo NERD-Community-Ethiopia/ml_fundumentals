@@ -1,0 +1,37 @@
+# Project Configuration
+project:
+  name: "ml_project"
+  version: "1.0.0"
+  description: "Machine Learning Project"
+
+# Data Configuration
+data:
+  raw_data_path: "data/raw/"
+  processed_data_path: "data/processed/"
+  external_data_path: "data/external/"
+  
+# Model Configuration
+model:
+  model_path: "models/"
+  checkpoint_path: "models/checkpoints/"
+  production_path: "models/production/"
+  
+# Training Configuration
+training:
+  random_state: 42
+  test_size: 0.2
+  validation_size: 0.2
+  batch_size: 32
+  epochs: 100
+  learning_rate: 0.001
+  
+# Logging Configuration
+logging:
+  log_path: "logs/"
+  log_level: "INFO"
+  
+# Feature Configuration
+features:
+  categorical_columns: []
+  numerical_columns: []
+  target_column: "target"
