@@ -3,6 +3,7 @@ import logging
 import matplotlib.pyplot as plt
 import seaborn as sns
 from pathlib import Path
+from typing import Optional
 
 # Set up logging
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
@@ -61,8 +62,19 @@ data = processor.load_data(filename)
 
 if data is not None:
     # Step 4: Preprocess data
+    # Check actual number of columns and adjust column names accordingly
+    num_columns = len(data.columns)
+    logger.info(f"Data has {num_columns} columns")
+    logger.info(f"Data shape: {data.shape}")
+    
     # Add column names (since wdbc.data has no header)
-    column_names = ['ID', 'Diagnosis'] + [f'Feature_{i}' for i in range(1, 31)]
+    # The Wisconsin Breast Cancer dataset typically has 32 columns: ID, Diagnosis, and 30 features
+    if num_columns == 32:
+        column_names = ['ID', 'Diagnosis'] + [f'Feature_{i}' for i in range(1, 31)]
+    else:
+        # Fallback for different column counts
+        column_names = ['ID', 'Diagnosis'] + [f'Feature_{i}' for i in range(1, num_columns - 1)]
+    
     data.columns = column_names
     
     # Convert Diagnosis to binary (M=1, B=0)
@@ -87,13 +99,17 @@ if data is not None:
     plt.xlabel('Mean Radius')
     plt.ylabel('Count')
     plt.legend(labels=['Benign', 'Malignant'])
-    plt.show()
+    plt.savefig('data/processed/feature1_distribution.png', dpi=300, bbox_inches='tight')
+    plt.close()
     
     # Correlation matrix heatmap (example visualization)
     plt.figure(figsize=(12, 10))
     correlation_matrix = data.drop('Diagnosis', axis=1).corr()
     sns.heatmap(correlation_matrix, annot=False, cmap='coolwarm', vmin=-1, vmax=1)
     plt.title('Correlation Matrix of Features')
-    plt.show()
+    plt.savefig('data/processed/correlation_matrix.png', dpi=300, bbox_inches='tight')
+    plt.close()
+    
+    logger.info("Visualizations saved to data/processed/")
 else:
     logger.error("Failed to load data. Check file path or format.")
