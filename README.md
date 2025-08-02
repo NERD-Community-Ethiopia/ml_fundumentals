@@ -1,4 +1,4 @@
-# 🎓 Multi-Model AI Comparison: Student Learning Journey
+# 🎓 Multi-Model AI Comparison: Student Learning Journey -by Natnael Kebede
 
 Welcome to your **Machine Learning Learning Journey**! This repository is designed to teach you how to compare different AI algorithms on the same dataset - a fundamental skill in machine learning practice.
 
@@ -268,19 +268,6 @@ pip install -r requirements.txt
 2. Look at the generated files in `models/checkpoints/`
 3. Read the code comments for explanations
 4. Try running in teaching mode first
-
----
-
-## 🎉 **Success Stories**
-
-### **What Students Say:**
-> "This project helped me understand the difference between various ML algorithms and when to use each one." - *Computer Science Student*
-
-> "The progression from simple to advanced made it easy to learn MLOps concepts step by step." - *Data Science Student*
-
-> "I can now confidently compare models and explain why one performs better than another." - *ML Engineering Student*
-
----
 
 ## 🚀 **Next Steps After This Project**
 
