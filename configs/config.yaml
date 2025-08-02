@@ -1,8 +1,8 @@
 # Project Configuration
 project:
-  name: "ml_project"
+  name: "breast_cancer_classification"
   version: "1.0.0"
-  description: "Machine Learning Project"
+  description: "Breast Cancer Classification with MLOps Pipeline"
 
 # Data Configuration
 data:
@@ -34,4 +34,25 @@ logging:
 features:
   categorical_columns: []
   numerical_columns: []
-  target_column: "target"
+  target_column: "Diagnosis"
+
+# Experiment Tracking
+experiment:
+  name: "breast_cancer_classification"
+  tracking_uri: "postgresql://mlops_user:mlops_password@localhost:5432/mlops"
+  use_wandb: false
+  wandb_project: "breast-cancer-ml"
+  use_experiment_tracking: true  # Enable production tracking
+
+# Model Monitoring
+monitoring:
+  drift_threshold: 0.1
+  monitoring_path: "logs/monitoring/"
+  alert_email: "admin@example.com"
+
+# API Configuration
+api:
+  host: "0.0.0.0"
+  port: 8000
+  workers: 4
+  reload: true

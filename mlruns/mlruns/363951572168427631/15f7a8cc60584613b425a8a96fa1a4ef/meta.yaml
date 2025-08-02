@@ -1,0 +1,14 @@
+artifact_uri: file:///mnt/c/Users/debel/Documents/ml_fundumentals/workshop_session/mlruns/363951572168427631/15f7a8cc60584613b425a8a96fa1a4ef/artifacts
+end_time: 1754147904728
+entry_point_name: ''
+experiment_id: '363951572168427631'
+lifecycle_stage: active
+run_id: 15f7a8cc60584613b425a8a96fa1a4ef
+run_name: multi_model_comparison
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1754147897735
+status: 3
+tags: []
+user_id: debelnk240909
